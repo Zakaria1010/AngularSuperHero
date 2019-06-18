@@ -6,18 +6,22 @@ import { RouterModule } from '@angular/router';
 import { MissionComponent } from './mission/mission.component';
 import { SharedModule } from './shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroComponent,
-    MissionComponent
+    MissionComponent,
+    NavbarComponent
   ],
   imports: [
     RouterModule,
     BrowserModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
