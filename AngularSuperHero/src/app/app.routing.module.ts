@@ -8,7 +8,8 @@ import { HeroComponent } from './hero/hero.component';
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'heroes'
+        redirectTo: 'heroes',
+        pathMatch: 'full'
     },
     {
         path: 'heroes',
@@ -30,5 +31,5 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule {
-    
+
 }
