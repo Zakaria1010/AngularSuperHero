@@ -2,9 +2,9 @@
 
 
 
-install packages 
+install packages : 
 npm install.
 
 
-run the app
+run the app : 
 npm start 
