@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
+import { MissionService } from './mission.service';
 
 
 @Injectable({
@@ -7,5 +8,8 @@ import { Resolve } from '@angular/router';
 })
 export class MissionResolverService implements Resolve<any> {
 
-  constructor() { }
+  constructor(private missionService: MissionService) { }
+  resolve(){
+    return this.missionService.getAll();
+  }
 }

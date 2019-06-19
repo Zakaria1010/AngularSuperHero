@@ -10,10 +10,6 @@ const missionRoutes: Routes = [
   {
     path: '',
     component: MissionComponent
-  },
-  {
-    path: ':missionId',
-    component: MissiondetailComponent
   }
 ];
 
@@ -27,4 +23,4 @@ const missionRoutes: Routes = [
 })
 
 export class MissionRoutingModule {
-}
+}   

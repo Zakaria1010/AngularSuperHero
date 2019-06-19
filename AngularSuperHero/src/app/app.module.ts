@@ -8,7 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from './app.routing.module';
-
+import { NgbModule,NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,8 +21,11 @@ import { AppRoutingModule } from './app.routing.module';
     BrowserModule,
     SharedModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
+
   ],
+  entryComponents: [MissionComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,9 +1,10 @@
 import {Mission} from "./mission"
 export class Hero{
-    constructor(public id?: String,
-                public firstName?: String,
-                public lastName?: String,
-                public Missions?: Mission[]){
+    constructor(public id?: string,
+                public firstname?: string,
+                public lastname?: string,
+                public superheroname?: string,
+                public missions?: Mission[]){
   
     }
   }

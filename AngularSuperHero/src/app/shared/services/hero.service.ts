@@ -6,5 +6,5 @@ import { CrudService } from '../crud/crud.service';
 })
 export class HeroService extends CrudService {
 
-  url= '/missions'
+  url = '/heroes'
 }

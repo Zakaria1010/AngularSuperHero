@@ -5,6 +5,5 @@ import { CrudService } from '../crud/crud.service';
   providedIn: 'root'
 })
 export class MissionService extends CrudService {
-
-  url='/missions'
+  url = '/missions'
 }

@@ -16,15 +16,15 @@ const routes: Routes = [
     {
         path: 'heroes',
         component: HeroComponent,
-        resolve : {
+         resolve : {
           missions: HeroResolverService
-        }
+        } 
     },
     {
         path: 'missions', component: MissionComponent,
         resolve : {
-          missions: MissionResolverService
-        }
+          missions: MissionResolverService 
+        } 
     }
 ];
 

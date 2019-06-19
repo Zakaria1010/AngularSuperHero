@@ -4,12 +4,7 @@
 
 <ng-container >
   <h3>{{title}}</h3>
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="collapse" [ngClass]="{'active': crudType == 'sample' }" href="" (click)="crudType = 'sample'">Hero Crud</a>
-    </li>
 
-  </ul>
   <div class="container" [ngStyle]="{'margin-top': '20px'}">
     <div>
       <app-sample
