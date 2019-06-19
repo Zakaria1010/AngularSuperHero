@@ -4,6 +4,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { CrudService } from '../crud.service';
 import { DataModel } from '../../models/data.model';
 import { MissionComponent } from 'src/app/mission/mission.component';
+import { MissionDataStoreService } from '../../services/mission-data-store.service';
 
 
 @Component({
@@ -40,7 +41,7 @@ export class SampleComponent implements OnInit {
   dataDiffer: any;
   dataType: string;
 
-  constructor(private fb: FormBuilder,  private modalService: NgbModal){
+  constructor(private fb: FormBuilder,  private modalService: NgbModal, private missionDataStore: MissionDataStoreService){
     this.createForm();
   }
 
@@ -105,43 +106,9 @@ export class SampleComponent implements OnInit {
     // filter missions by heroId
     this.service.getOne(this.selectedItem.id).
     subscribe( res => { 
+      this.missionDataStore.updateMissions(res.missions)
       this.modalService.open(MissionComponent, {size: 'lg'})
     });  
   }
 
-  public addMissionToHero() {
-
-  }
-
-  public getDataType() {
-    this.dataModelList.forEach(config =>{
-      if( config.dataType === 'undefined') {
-        config.dataType = this.getColumnType(config);
-      }
-      else {
-        config.dataType = this.getColumnType(config);
-      }
-    })
-  }
-
-  public getColumnType(config: DataModel): string {
-   
-      if( config && typeof config === 'string') {
-        this.dataType = 'string'
-            return this.dataType
-      }
-      if( config && typeof config === 'boolean') {
-          this.dataType = 'boolean'
-            return this.dataType
-      }
-      if( config && typeof config === 'number') {
-        this.dataType = 'number'
-          return this.dataType
-      }
-        this.dataType = 'undefined'
-          return this.dataType
-  }
-
-  
-  
 }

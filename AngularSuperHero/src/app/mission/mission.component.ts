@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Mission } from '../shared/models/mission';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { DataModel } from '../shared/models/data.model';
-import { MissionDataStoreService } from '../shared/services/mission.data-store.service';
 import { ActivatedRoute } from '@angular/router';
 import { MissionService } from '../shared/services/mission.service';
+import { HeroService } from '../shared/services/hero.service';
+import { MissionDataStoreService } from '../shared/services/mission-data-store.service';
 
 @Component({
   selector: 'app-mission',
@@ -13,7 +14,7 @@ import { MissionService } from '../shared/services/mission.service';
 })
 export class MissionComponent implements OnInit {
 
-
+  @Input()
   missions: Mission[];
 
   missionForm: FormGroup;
@@ -22,11 +23,10 @@ export class MissionComponent implements OnInit {
 
   missionsModel: DataModel[];  
 
-
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private missionService: MissionService) { }
+  constructor(private fb: FormBuilder, private missionDataStore: MissionDataStoreService) { }
 
   ngOnInit() {
-    this.missionService.getAll().subscribe(res => this.missions = res)
+    this.missionDataStore.currentMissions.subscribe(res => this.missions = res);
     this.missionForm = this.fb.group({
       missionName: ['', Validators.required],
       completed: '',
