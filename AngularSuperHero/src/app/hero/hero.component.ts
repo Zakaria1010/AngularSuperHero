@@ -5,6 +5,7 @@ import { DataModel } from '../shared/models/data.model';
 import { ActivatedRoute } from '@angular/router';
 import { HeroService } from 'src/app/shared/services/hero.service';
 import { Mission } from 'src/app/shared/models/mission';
+import { MissionDataStoreService } from '../shared/services/mission-data-store.service';
 
 @Component({
   selector: 'app-hero',
@@ -22,10 +23,10 @@ export class HeroComponent implements OnInit {
 
   heroesModel: DataModel[];
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private heroService: HeroService) { }
+  constructor(private fb: FormBuilder, private heroService: HeroService, private missionDataStore: MissionDataStoreService) { }
 
   ngOnInit() {
-
+    
     this.heroService.getAll().subscribe(res => this.heroes = res)
     console.log('this.heroes', this.heroes)
     this.heroForm = this.fb.group({

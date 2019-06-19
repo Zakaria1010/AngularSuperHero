@@ -13,8 +13,8 @@ export class CrudService {
 
   }
 
-  getOne(id): Observable<any>{
-    return this.http.get<any>(environment.api_url + this.url + `/${id}`);
+  getOne(id): Observable<Hero>{
+    return this.http.get<Hero>(environment.api_url + this.url + `/${id}`);
   }
 
   getAll(): Observable<any>{

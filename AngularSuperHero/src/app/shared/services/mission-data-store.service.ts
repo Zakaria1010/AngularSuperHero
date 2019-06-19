@@ -10,7 +10,7 @@ export class MissionDataStoreService {
   constructor() { }
 
   public missions: BehaviorSubject<Mission[]> = new BehaviorSubject([]);
-  public currentMission = this.missions.asObservable();
+  public currentMissions = this.missions.asObservable();
 
 
   public updateMissions(newMissions: Mission[]){

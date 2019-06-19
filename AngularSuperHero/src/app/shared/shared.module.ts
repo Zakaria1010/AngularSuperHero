@@ -5,9 +5,7 @@ import { SampleComponent } from './crud/sample/sample.component';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MissionDataStoreService } from './services/mission.data-store.service';
 import { HttpClientModule } from '@angular/common/http';
-import { MissionComponent } from '../mission/mission.component';
 
 @NgModule({
 
@@ -19,7 +17,7 @@ import { MissionComponent } from '../mission/mission.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [MissionDataStoreService],
+  providers: [],
   exports: [CrudComponent, SampleComponent]
 })
 export class SharedModule { }
