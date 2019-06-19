@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  showHideSideBar: boolean = false;
 
   constructor(){}
 
@@ -16,8 +15,5 @@ export class AppComponent implements OnInit{
 
   }
 
-  onShowSideBarChange(showHideSideBar){
-    this.showHideSideBar = showHideSideBar;
-  }
 
 }
