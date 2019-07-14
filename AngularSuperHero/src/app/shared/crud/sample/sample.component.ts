@@ -5,6 +5,7 @@ import { CrudService } from '../crud.service';
 import { DataModel } from '../../models/data.model';
 import { MissionComponent } from 'src/app/mission/mission.component';
 import { MissionDataStoreService } from '../../services/mission-data-store.service';
+import { HeroDataStoreService } from '../../services/hero-data-store.service';
 
 
 @Component({
@@ -38,10 +39,9 @@ export class SampleComponent implements OnInit {
 
   selectedItem: any;
 
-  dataDiffer: any;
   dataType: string;
 
-  constructor(private fb: FormBuilder,  private modalService: NgbModal, private missionDataStore: MissionDataStoreService){
+  constructor(private fb: FormBuilder,  private modalService: NgbModal, private missionData: MissionDataStoreService, private heroData : HeroDataStoreService){
     this.createForm();
   }
 
@@ -58,7 +58,6 @@ export class SampleComponent implements OnInit {
   loadData(){
     this.service.getAll().subscribe(
       data => {
-        console.log('samplgetAll')
         this.data = data},
       error => { console.log('An error was occured.')},
       () => { console.log('loading data was done.')}
@@ -67,7 +66,6 @@ export class SampleComponent implements OnInit {
 
   add(){
     const p  = this.crudForm.value;
-    console.log('testP',p)
     this.service.add(p).subscribe(
       res => {
         this.init();
@@ -88,7 +86,6 @@ export class SampleComponent implements OnInit {
 
   init(){
     this.selectedItem = this.initItem;
-    console.log('item', this.selectedItem)
     this.createForm();
   }
 
@@ -103,10 +100,11 @@ export class SampleComponent implements OnInit {
   }
 
   public showDetail() {
-    // filter missions by heroId
+    console.log(this.selectedItem.id)
+    this.heroData.updateHeroId(this.selectedItem.id)
     this.service.getOne(this.selectedItem.id).
     subscribe( res => { 
-      this.missionDataStore.updateMissions(res.missions)
+      this.missionData.updateMissions(res.missions)
       this.modalService.open(MissionComponent, {size: 'lg'})
     });  
   }

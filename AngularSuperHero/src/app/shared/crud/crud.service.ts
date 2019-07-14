@@ -9,8 +9,7 @@ import { Hero } from '../models/hero';
 export class CrudService {
   url: string;
 
-  constructor(private http: HttpClient){
-
+  constructor(public http: HttpClient){
   }
 
   getOne(id): Observable<Hero>{
@@ -18,17 +17,16 @@ export class CrudService {
   }
 
   getAll(): Observable<any>{
-    console.log('getAll')
     return this.http.get<any>(environment.api_url + this.url);
   }
 
   add(entity): Observable<Hero>{
-    console.log('entity', entity)
+    console.log('entity', environment.api_url + this.url, entity)
     return this.http.post<Hero>(environment.api_url + this.url, entity);
   }
 
   update(entity): Observable<any>{
-    return this.http.put<any>(environment.api_url + this.url, entity);
+    return this.http.put<any>(environment.api_url + this.url + `/${entity.id}` , entity);
   }
 
   delete(id): Observable<any>{

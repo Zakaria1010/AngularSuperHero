@@ -23,7 +23,7 @@ export class MissionComponent implements OnInit {
 
   missionsModel: DataModel[];  
 
-  constructor(private fb: FormBuilder, private missionDataStore: MissionDataStoreService) { }
+  constructor(private fb: FormBuilder, private missionDataStore: MissionDataStoreService, public missionService: MissionService) { }
 
   ngOnInit() {
     this.missionDataStore.currentMissions.subscribe(res => this.missions = res);

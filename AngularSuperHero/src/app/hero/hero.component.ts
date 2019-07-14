@@ -28,7 +28,6 @@ export class HeroComponent implements OnInit {
   ngOnInit() {
     
     this.heroService.getAll().subscribe(res => this.heroes = res)
-    console.log('this.heroes', this.heroes)
     this.heroForm = this.fb.group({
       firstname: ['', Validators.required],
       lastname: '',

@@ -2,7 +2,7 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MissiondetailComponent } from './missiondetail/missiondetail.component';
+// import { MissiondetailComponent } from './missiondetail/missiondetail.component';
 import { MissionComponent } from './mission.component';
 
 
